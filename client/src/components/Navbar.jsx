@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { useAppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { user, setUSer } = useAppContext();
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
@@ -62,13 +64,21 @@ const Navbar = () => {
         <NavLink to="/products" onClick={() => setOpen(false)}>
           All Product
         </NavLink>
-        <NavLink to="/" onClick={() => setOpen(false)}>
-          My orders
-        </NavLink>
+        {user && (
+          <NavLink to="/" onClick={() => setOpen(false)}>
+            My orders
+          </NavLink>
+        )}
 
-        <button className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
-          Login
-        </button>
+        {!user ? (
+          <button className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
+            Login
+          </button>
+        ) : (
+          <button className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
+            Logout
+          </button>
+        )}
       </div>
     </nav>
   );
