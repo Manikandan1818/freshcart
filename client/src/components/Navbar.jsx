@@ -5,7 +5,12 @@ import { useAppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { user, setUSer } = useAppContext();
+  const { user, setUSer, setShowUserLogin, navigate } = useAppContext();
+
+  const logout = async () => {
+    setUSer(null);
+    navigate("/");
+  };
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
@@ -53,33 +58,44 @@ const Navbar = () => {
       </button>
 
       {/* Mobile Menu */}
-      <div
-        className={`${
-          open ? "flex" : "hidden"
-        } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
-      >
-        <NavLink to="/" onClick={() => setOpen(false)}>
-          Home
-        </NavLink>
-        <NavLink to="/products" onClick={() => setOpen(false)}>
-          All Product
-        </NavLink>
-        {user && (
+      {open && (
+        <div
+          className={`${
+            open ? "flex" : "hidden"
+          } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
+        >
           <NavLink to="/" onClick={() => setOpen(false)}>
-            My orders
+            Home
           </NavLink>
-        )}
+          <NavLink to="/products" onClick={() => setOpen(false)}>
+            All Product
+          </NavLink>
+          {user && (
+            <NavLink to="/" onClick={() => setOpen(false)}>
+              My orders
+            </NavLink>
+          )}
 
-        {!user ? (
-          <button className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
-            Login
-          </button>
-        ) : (
-          <button className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm">
-            Logout
-          </button>
-        )}
-      </div>
+          {!user ? (
+            <button
+              onClick={() => {
+                setOpen(false);
+                setShowUserLogin(true);
+              }}
+              className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
+            >
+              Login
+            </button>
+          ) : (
+            <button
+              onClick={logout()}
+              className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
+            >
+              Logout
+            </button>
+          )}
+        </div>
+      )}
     </nav>
   );
 };
