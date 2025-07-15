@@ -5,16 +5,16 @@ import { useAppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { user, setUSer, setShowUserLogin, navigate } = useAppContext();
+  const { user, setUser, setShowUserLogin, navigate } = useAppContext();
 
   const logout = async () => {
-    setUSer(null);
+    setUser(null);
     navigate("/");
   };
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
-      <NavLink to="/">
+      <NavLink to="/" onClick={() => setOpen(false)}>
         <img className="h-9" src={assets.logo} alt="dummyLogoColored" />
       </NavLink>
 
@@ -33,7 +33,10 @@ const Navbar = () => {
           <img src={assets.search_icon} alt="search" className="w-4 h-4" />
         </div>
 
-        <div className="relative cursor-pointer">
+        <div
+          onClick={() => navigate("/cart")}
+          className="relative cursor-pointer"
+        >
           <img
             src={assets.nav_cart_icon}
             alt="cart"
@@ -52,7 +55,23 @@ const Navbar = () => {
             Login
           </button>
         ) : (
-          <div></div>
+          <div className="relative group">
+            <img src={assets.profile_icon} className="w-10" alt="profile" />
+            <ul className="hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40">
+              <li
+                onClick={() => navigate("my-orders")}
+                className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
+              >
+                My orders
+              </li>
+              <li
+                onClick={logout}
+                className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
+              >
+                Logout
+              </li>
+            </ul>
+          </div>
         )}
       </div>
 
@@ -95,7 +114,7 @@ const Navbar = () => {
             </button>
           ) : (
             <button
-              onClick={logout()}
+              onClick={logout}
               className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
             >
               Logout
