@@ -4,6 +4,7 @@ import { useAppContext } from "../context/AppContext";
 
 const Categories = () => {
   const { navigate } = useAppContext();
+  console.log(navigate);
 
   return (
     <div className="mt-16">
