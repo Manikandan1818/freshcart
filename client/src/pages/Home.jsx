@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Categories from "../components/Categories";
 import BestSeller from "../components/BestSeller";
 import BottomBanner from "../components/BottomBanner";
+import Newsletter from "../components/NewsLetter";
 
 export const Home = () => {
   return (
@@ -11,6 +12,7 @@ export const Home = () => {
       <Categories />
       <BestSeller />
       <BottomBanner />
+      <NewsLetter />
     </div>
   );
 };
