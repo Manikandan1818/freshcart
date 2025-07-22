@@ -12,6 +12,7 @@ const ProductCard = ({ product }) => {
     removeFromCart,
     navigate,
   } = useAppContext();
+  console.log(cartItems);
 
   return (
     product && (
