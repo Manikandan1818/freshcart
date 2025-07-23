@@ -4,9 +4,12 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import { Home } from "./pages/Home";
 import Footer from "./components/Footer";
+import { useAppContext } from "./context/AppContext";
+import Login from "./components/Login";
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
+  const { showUserLogin } = useAppContext();
 
   return (
     <div>
@@ -20,6 +23,7 @@ const App = () => {
         </Routes>
       </div>
       {!isSellerPath && <Footer />}
+      {showUserLogin ? <Login /> : null}
     </div>
   );
 };
