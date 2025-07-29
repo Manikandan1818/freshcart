@@ -80,7 +80,7 @@ const ProductCard = ({ product }) => {
                     onClick={() => addToCart(product._id)}
                     className="cursor-pointer text-md px-2 h-full"
                   >
-                    +
+                    ++
                   </button>
                 </div>
               )}
