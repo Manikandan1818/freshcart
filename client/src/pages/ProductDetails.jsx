@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAppContext } from "../context/AppContext";
+import { Link, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
-  const [thumbnail, setThumbnail] = React.useState(product.images[0]);
+  const { products, currency, navigate, addToCart } = useAppContext();
+  const { id } = useParams();
+  const [relatedProducts, setRelatedProducts] = useState(product.images[0]);
+  const [thumbnail, setThumbnail] = useState(null);
+
+  const product = products.find((item) => item._id === id);
+
+  // related products
+  useEffect(() => {
+    if (products.length > 0) {
+      let productsCopy = products.slice();
+      productsCopy = productsCopy.filter(
+        (item) => product.category === item.category
+      );
+      setRelatedProducts(productsCopy.slice(0, 5));
+    }
+  }, [products]);
+
+  useEffect(() => {
+    setThumbnail(product?.image[0] ? product.image[0] : null);
+  }, [product]);
 
   return (
     product && (
       <div className="max-w-6xl w-full px-6">
         <p>
-          <span>Home</span> /<span> Products</span> /
-          <span> {product.category}</span> /
-          <span className="text-indigo-500"> {product.name}</span>
+          <Link to={"/"}>Home</Link> / <Link to={"/products"}> Products</Link> /
+          <Link to={"/products/${product.category}"}> {product.category}</Link>{" "}
+          /<Link className="text-indigo-500"> {product.name}</Link>
         </p>
 
         <div className="flex flex-col md:flex-row gap-16 mt-4">

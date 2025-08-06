@@ -6,14 +6,14 @@ import ProductCard from "../components/ProductCard";
 
 const ProductCategory = () => {
   const { products } = useAppContext();
-  const { categoryPath } = useParams();
+  const { category } = useParams();
 
   const searchCategory = categories.find(
-    (item) => item.path.toLowerCase() === categoryPath
+    (item) => item.path.toLowerCase() === category
   );
 
   const filteredProducts = products.filter(
-    (product) => product.category.toLowerCase() === categoryPath
+    (product) => product.category.toLowerCase() === category
   );
 
   return (
