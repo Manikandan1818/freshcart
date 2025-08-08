@@ -34,7 +34,7 @@ const ProductDetails = () => {
           <Link to={`/products/${product.category.toLowerCase()}`}>
             {product.category}
           </Link>{" "}
-          /<Link className="text-indigo-500"> {product.name}</Link>
+          /<Link className="text-primary"> {product.name}</Link>
         </p>
 
         <div className="flex flex-col md:flex-row gap-16 mt-4">
@@ -107,7 +107,7 @@ const ProductDetails = () => {
                   addToCart(product._id);
                   navigate("/cart");
                 }}
-                className="w-full py-3.5 cursor-pointer font-medium bg-indigo-500 text-white hover:bg-indigo-600 transition"
+                className="w-full py-3.5 cursor-pointer font-medium bg-primary text-white hover:bg-primary-dull transition"
               >
                 Buy now
               </button>
