@@ -54,6 +54,8 @@ export const AppContextProvider = ({ children }) => {
     setCartItems(cartData);
   };
 
+  // Get cart Item Count
+
   useEffect(() => {
     fetchProducts();
   }, []);
