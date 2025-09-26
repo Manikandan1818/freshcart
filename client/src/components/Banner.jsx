@@ -7,7 +7,7 @@ const Banner = () => {
     <div className="relative">
       <img
         src={assets.main_banner_bg}
-        className="w-full hidden md:block"
+        className="w-1 hidden md:block"
         alt="banner"
       />
       <img
