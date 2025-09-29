@@ -14,6 +14,7 @@ import Cart from "./pages/Cart";
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
   const { showUserLogin } = useAppContext();
+  console.log(showUserLogin);
 
   return (
     <div>
