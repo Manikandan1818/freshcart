@@ -70,4 +70,4 @@ const MyOrders = () => {
   );
 };
 
-export default ;
+export default MyOrders;
