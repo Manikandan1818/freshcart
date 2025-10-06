@@ -16,7 +16,7 @@ import SellerLogin from "./components/seller/SellerLogin";
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
-  const { showUserLogin } = useAppContext();
+  const { showUserLogin, isSeller } = useAppContext();
 
   return (
     <div>
@@ -36,8 +36,8 @@ const App = () => {
           <Route path="/my-orders" element={<MyOrders />} />
           <Route
             path="/seller"
-            element={isSellerPath ? null : <SellerLogin />}
-          />
+            element={isSeller ? null : <SellerLogin />}
+          ></Route>
         </Routes>
       </div>
       {!isSellerPath && <Footer />}
