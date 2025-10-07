@@ -30,7 +30,6 @@ const SellerLayout = () => {
             className="cursor-pointer w-34 md:w-38"
           />
         </Link>
-
         <div className="flex items-center gap-5 text-gray-500">
           <p>Hi! Admin</p>
           <button
