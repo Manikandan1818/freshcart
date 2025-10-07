@@ -59,8 +59,8 @@ const SellerLayout = () => {
             </NavLink>
           ))}
         </div>
+        <Outlet />
       </div>
-      <Outlet />
     </>
   );
 };
