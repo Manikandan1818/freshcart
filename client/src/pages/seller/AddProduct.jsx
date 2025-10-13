@@ -22,7 +22,7 @@ const AddProduct = () => {
         <div>
           <p className="text-base font-medium">Product Image</p>
           <div className="flex flex-wrap items-center gap-3 mt-2">
-            {Array(4)
+            {Array(3)
               .fill("")
               .map((_, index) => (
                 <label key={index} htmlFor={`image${index}`}>
