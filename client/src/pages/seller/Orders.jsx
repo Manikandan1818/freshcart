@@ -10,6 +10,7 @@ const Orders = () => {
     setOrders(dummyAddress);
   };
 
+  console.log(dummyAddress);
   useEffect(() => {
     fetchOrders();
   }, []);
