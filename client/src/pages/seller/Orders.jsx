@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../../context/AppContext";
-import { assets, dummyAddress } from "../../assets/assets";
+import { assets, dummyOrders } from "../../assets/assets";
 
 const Orders = () => {
   const { currency } = useAppContext();
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
-    setOrders(dummyAddress);
+    setOrders(dummyOrders);
   };
 
-  console.log(dummyAddress);
   useEffect(() => {
     fetchOrders();
   }, []);
@@ -30,7 +29,7 @@ const Orders = () => {
                 src={assets.box_icon}
                 alt="boxIcon"
               />
-              <>
+              <div>
                 {order.items.map((item, index) => (
                   <div key={index} className="flex flex-col">
                     <p className="font-medium">
@@ -40,12 +39,13 @@ const Orders = () => {
                           item.quantity < 2 && "hidden"
                         }`}
                       >
+                        {" "}
                         x {item.quantity}
                       </span>
                     </p>
                   </div>
                 ))}
-              </>
+              </div>
             </div>
 
             <div className="text-sm md:text-base text-black/60">
