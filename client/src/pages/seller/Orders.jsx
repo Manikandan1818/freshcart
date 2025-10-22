@@ -34,14 +34,7 @@ const Orders = () => {
                   <div key={index} className="flex flex-col">
                     <p className="font-medium">
                       {item.product.name}{" "}
-                      <span
-                        className={`text-primary ${
-                          item.quantity < 2 && "hidden"
-                        }`}
-                      >
-                        {" "}
-                        x {item.quantity}
-                      </span>
+                      <span className="text-primary">x {item.quantity}</span>
                     </p>
                   </div>
                 ))}
