@@ -3,4 +3,13 @@ npm install tailwindcss @tailwindcss/vite
 npm install react-router-dom react-hot-toast
 
 prebuiltui -- tailwind
-Unable
+
+
+Backend
+
+npm init -y --- Package
+npm install bcryptjs -- bcryptjs
+npm install cloudinary -- images store
+
+
+ 
