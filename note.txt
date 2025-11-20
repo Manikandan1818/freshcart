@@ -10,6 +10,13 @@ Backend
 npm init -y --- Package
 npm install bcryptjs -- bcryptjs
 npm install cloudinary -- images store
-
-
+cookie-parser
+cors - connect frontend to Backend
+dotenv - stored env file
+express - 
+jsonwebtoken
+mongoose - connect to mongo db
+multer - which is primarily used for uploading files
+stripe - payment
+npm install nodemon --save-dev -- Save development server
  
