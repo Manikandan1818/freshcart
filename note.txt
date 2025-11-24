@@ -19,4 +19,3 @@ mongoose - connect to mongo db
 multer - which is primarily used for uploading files
 stripe - payment
 npm install nodemon --save-dev -- Save development server
- 
