@@ -11,8 +11,7 @@
   },
   "keywords": [],
   "author": "Manikandan",
-  "license": "ISC",
-  "type": "commonjs",
+  "license": "ISC",  
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.8.0",
