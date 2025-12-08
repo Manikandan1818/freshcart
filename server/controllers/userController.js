@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import User from "../models/User"
+import User from "../models/User.js"
 import bcrypt from "bcryptjs"
 
 // Register user: /api/user/register
@@ -10,7 +10,8 @@ export const register = async (req, res) => {
             res.json({sucess: false, message: "Missing details"})
         }
         
-        const existingUser = await User.findone({email})
+        const existingUser = await User.findOne({email})
+        
         if(existingUser){
             return res.json({sucess: false, message: "User already exits"})
         }
@@ -21,7 +22,7 @@ export const register = async (req, res) => {
 
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "7d"})
 
-        res.cookie("token", {
+        res.cookie("token", token, {
             httpOnly: true, // Prevent Javascript to access cookie
             secure: process.env.NODE_ENV === "production", // Use secure cookies in production
             sameSite: process.env.NODE_ENV === "production" ? "none" : "strict", // CSRF Production
