@@ -21,10 +21,8 @@ app.use(cors({origin: allowedOrigins, credentials: true}))
 
 
 app.get("/", (req, res)=> res.send("API is running..."))
-app.use("/api/user", userRouterer)
+app.use("/api/user", userRouter)
 
 app.listen(port, ()=> {
   console.log(`Server is running on http://localhost:${port}`)
 })
-
-
