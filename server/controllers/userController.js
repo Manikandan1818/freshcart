@@ -36,3 +36,5 @@ export const register = async (req, res) => {
         res.json({sucess: false, message: error.message})
     }
 }
+
+// Login User: /api/user/login
