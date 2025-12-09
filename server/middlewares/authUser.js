@@ -18,7 +18,9 @@ const authUser = async (req, res, next) => {
         }
         next()
     } catch (error) {
-        
+        return res.json({sucess: false, message: error.message})
     }
 
 }
+
+export default authUser;
