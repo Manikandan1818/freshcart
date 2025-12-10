@@ -71,3 +71,7 @@ export const login = async (req, res) => {
         res.json({sucess: false, message: error.message})
     }
 }
+
+// Check Auth : /api/user/is-auth
+
+export const isAuth = () => {}
