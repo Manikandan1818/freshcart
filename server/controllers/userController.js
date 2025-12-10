@@ -74,4 +74,10 @@ export const login = async (req, res) => {
 
 // Check Auth : /api/user/is-auth
 
-export const isAuth = () => {}
+export const isAuth = async (req, res) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+}
