@@ -81,6 +81,8 @@ export const isAuth = async (req, res) => {
         return res.json({sucess: true, user})
 
     } catch (error) {
-        
+        console.log(error.message)
+        res.json({sucess: false, message: error.message})
+       
     }
 }
