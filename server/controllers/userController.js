@@ -86,4 +86,5 @@ export const isAuth = async (req, res) => {
     }
 }
 
-// Logout User : /api/user/logout
+// Lo User : /api/user/logout
+
