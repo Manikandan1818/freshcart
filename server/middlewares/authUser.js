@@ -1,3 +1,5 @@
+// Decode the token
+
 import jwt from "jsonwebtoken"
 
 const authUser = async (req, res, next) => {
