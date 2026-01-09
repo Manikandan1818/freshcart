@@ -18,3 +18,5 @@ const authSeller = async (req, res, next) => {
         res.json({sucess:false, message: error.message})        
     }
 }
+
+export default authSeller
