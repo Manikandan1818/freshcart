@@ -24,3 +24,5 @@ export const sellerLogin = async (req, res) => {
         res.json({sucess: false, message: error.message})        
     }
 }
+
+// Seller isAuth : /api/seller/is-auth
