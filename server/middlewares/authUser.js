@@ -7,7 +7,7 @@ const authUser = async (req, res, next) => {
     const {token} = req.cookies;
 
     if(!token) {
-        return res.json({sucess: false, message: "Not Authorized"})
+        return res.json({success: false, message: "Not Authorized"})
     }
 
     try {
@@ -16,11 +16,11 @@ const authUser = async (req, res, next) => {
             req.body.userId = tokenDecode.id
         }
         else{
-            return res.json({sucess: false, message: "Not Authorized"})
+            return res.json({success: false, message: "Not Authorized"})
         }
         next()
     } catch (error) {
-        return res.json({sucess: false, message: error.message})
+        return res.json({success: false, message: error.message})
     }
 
 }
