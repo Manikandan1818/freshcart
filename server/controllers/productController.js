@@ -13,7 +13,7 @@ export const productById = async (req, res) => {
 
 }
 
-// Get product instock : /api/product/id
+// Get product instock : /api/product/stock
 export const changeStock = async (req, res) => {
 
 }
