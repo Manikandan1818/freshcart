@@ -1,5 +1,11 @@
 // Add product: /api/product/add
 export const addProduct = async (req, res) => {
+    try {
+        let productData = JSON.parse(req.body.productData)
+        
+    } catch (error) {
+        
+    }
 
 }
 
