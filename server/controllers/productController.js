@@ -21,12 +21,16 @@ export const addProduct = async (req, res) => {
     } catch (error) {
         console.log(error.message)
         res.json({success: false, message: error.message})
-            }
-
+    }
 }
 
 // Get Product: /api/product/list
 export const productList = async (req, res) => {
+    try {
+        const products = await Product.find({})
+    } catch (error) {
+        
+    }
 
 }
 
