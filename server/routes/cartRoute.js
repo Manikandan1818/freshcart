@@ -1,8 +1,3 @@
-// import mongoose from "mongoose";
-
-// const cartRouter = mongoose.Router()
-
-
 import express from "express"
 import authUser from "../middlewares/authUser"
 import { updateCart } from "../controllers/cartController"
