@@ -1,5 +1,5 @@
-import Order from "../models/Order"
-import Product from "../models/Product"
+import Order from "../models/Order.js"
+import Product from "../models/Product.js"
 
 // Place order COD: /api/order/cod
 
@@ -33,7 +33,6 @@ export const placeOrderCOD = async (req, res) => {
 
 
 // Get orders by userId : /api/order/user
-
 export const getUserOrders = async (req, res) => {
     try {
         const {userId} = req.body
