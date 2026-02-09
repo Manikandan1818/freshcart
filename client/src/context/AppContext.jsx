@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import { dummyProducts } from "../assets/assets";
+import axios from "axios"
 
 export const AppContext = createContext();
 
@@ -99,6 +100,7 @@ export const AppContextProvider = ({ children }) => {
     setSearchQuery,
     getCartCount,
     getCartAmount,
+    axios
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
