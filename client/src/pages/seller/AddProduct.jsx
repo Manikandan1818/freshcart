@@ -16,6 +16,7 @@ const AddProduct = () => {
   const onSubmitHandler = async (event) => {
     try {
       event.preventDefault();
+
       const productData = {
         name,
         description: description.split("/n"),
@@ -28,8 +29,8 @@ const AddProduct = () => {
       formData.append("productData", JSON.stringify(productData))
       for (let i = 0; i < files.length; i++) {
         formData.append("images", files[i])        
-      }
-      const {data} = await axios("/api/product/add", formData)
+      }      
+      const {data} = await axios.post("/api/product/add", formData)
       if(data.success){
         toast.success(data.message)
         setFiles([])
@@ -56,7 +57,7 @@ const AddProduct = () => {
         <div>
           <p className="text-base font-medium">Product Image</p>
           <div className="flex flex-wrap items-center gap-3 mt-2">
-            {Array(3)
+            {Array(4)
               .fill("")
               .map((_, index) => (
                 <label key={index} htmlFor={`image${index}`}>
