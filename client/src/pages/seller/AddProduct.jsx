@@ -28,9 +28,10 @@ const AddProduct = () => {
       const formData = new FormData();
       formData.append("productData", JSON.stringify(productData))
       for (let i = 0; i < files.length; i++) {
-        formData.append("images", files[i])        
+        formData.append("images", files[i])
       }      
       const {data} = await axios.post("/api/product/add", formData)
+      console.log(data)
       if(data.success){
         toast.success(data.message)
         setFiles([])
@@ -45,6 +46,7 @@ const AddProduct = () => {
 
     } catch (error) {
       toast.error(data.message)
+      console.log(error)
     }
   };
 
