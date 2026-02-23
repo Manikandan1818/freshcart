@@ -36,7 +36,7 @@ export const AppContextProvider = ({ children }) => {
 
   // Fetch all product
   const fetchProducts = async () => {
-    setProducts(dummyProducts);
+    
   };
 
   // Add product to product
