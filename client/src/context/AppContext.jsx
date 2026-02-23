@@ -36,7 +36,17 @@ export const AppContextProvider = ({ children }) => {
 
   // Fetch all product
   const fetchProducts = async () => {
-    
+    try {
+      const {data} = await axios.get("/api/product/list")
+      if (data.success) {
+        setProducts(data.products)        
+      } else {
+        toast(data.message)
+      }
+      
+    } catch (error) {
+      
+    }
   };
 
   // Add product to product
