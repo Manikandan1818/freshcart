@@ -42,10 +42,9 @@ export const AppContextProvider = ({ children }) => {
         setProducts(data.products)        
       } else {
         toast(data.message)
-      }
-      
+      }      
     } catch (error) {
-      
+        toast.error(error.message)      
     }
   };
 
@@ -128,6 +127,7 @@ export const AppContextProvider = ({ children }) => {
     setSearchQuery,
     getCartCount,
     getCartAmount,
+    fetchProducts,
     axios
   };
 
