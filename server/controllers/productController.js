@@ -6,6 +6,7 @@ export const addProduct = async (req, res) => {
     try {
         let productData = JSON.parse(req.body.productData)        
         const images = req.files
+        console.log(images)
         let imagesUrl = await Promise.all(
             images.map( async (item) => {
                 let result = await cloudinary.uploader.upload(item.path, {resource_type: "image"})
@@ -37,8 +38,7 @@ try {
     const {id} = req.body
     const product = await Product.findById(id)
     res.json({success: true, product})
-} catch (error) {
-    console.log(error.message)
+} catch (error) {    
     res.json({success: false, message: error.message})
 }
 }
