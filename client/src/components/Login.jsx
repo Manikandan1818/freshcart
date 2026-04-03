@@ -11,10 +11,7 @@ const Login = () => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    setUser({
-      email: "test@gmail.com",
-      name: "Mani",
-    });
+    
     setShowUserLogin(false);
   };
 
