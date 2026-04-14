@@ -2,7 +2,7 @@ import React from "react";
 import { useAppContext } from "../context/AppContext";
 
 const Login = () => {
-  const { setShowUserLogin, setUser } = useAppContext();
+  const { setShowUserLogin, setUser, axios } = useAppContext();
 
   const [state, setState] = React.useState("login");
   const [name, setName] = React.useState("");
@@ -10,9 +10,13 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
 
   const onSubmitHandler = (event) => {
-    event.preventDefault();
-    
-    setShowUserLogin(false);
+    try {
+      event.preventDefault();
+      
+      setShowUserLogin(false);
+    } catch (error) {
+      
+    }    
   };
 
   return (
