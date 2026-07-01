@@ -11,8 +11,7 @@ const Login = () => {
 
   const onSubmitHandler = (event) => {
     try {
-      event.preventDefault();
-      
+      event.preventDefault();      
       setShowUserLogin(false);
     } catch (error) {
       
