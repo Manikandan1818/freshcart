@@ -16,7 +16,6 @@ const AddProduct = () => {
   const onSubmitHandler = async (event) => {
     try {
       event.preventDefault();
-
       const productData = {
         name,
         description: description.split("/n"),
@@ -29,7 +28,7 @@ const AddProduct = () => {
       for (let i = 0; i < files.length; i++) {
         formData.append("images", files[i])
       }      
-      const {data} = await axios.post("/api/product/add", formData)      
+      const {data} = await axios.post("/api/product/add", formData)
       if(data.success){
         toast.success(data.message)
         setFiles([])
@@ -43,8 +42,7 @@ const AddProduct = () => {
       }
 
     } catch (error) {
-      toast.error(data.message)
-      console.log(error)
+      toast.error(data.message)      
     }
   };
 
